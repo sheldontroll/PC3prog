@@ -8,6 +8,19 @@ namespace PC3prog.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nombre = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Publicaciones",
                 columns: table => new
                 {
@@ -24,33 +37,40 @@ namespace PC3prog.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categorias",
+                name: "CategoriaPublicacion",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: true),
-                    PublicacionId = table.Column<int>(type: "integer", nullable: true)
+                    PublicacionesId = table.Column<int>(type: "integer", nullable: false),
+                    categoriasId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categorias", x => x.Id);
+                    table.PrimaryKey("PK_CategoriaPublicacion", x => new { x.PublicacionesId, x.categoriasId });
                     table.ForeignKey(
-                        name: "FK_Categorias_Publicaciones_PublicacionId",
-                        column: x => x.PublicacionId,
+                        name: "FK_CategoriaPublicacion_Categorias_categoriasId",
+                        column: x => x.categoriasId,
+                        principalTable: "Categorias",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CategoriaPublicacion_Publicaciones_PublicacionesId",
+                        column: x => x.PublicacionesId,
                         principalTable: "Publicaciones",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categorias_PublicacionId",
-                table: "Categorias",
-                column: "PublicacionId");
+                name: "IX_CategoriaPublicacion_categoriasId",
+                table: "CategoriaPublicacion",
+                column: "categoriasId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "CategoriaPublicacion");
+
             migrationBuilder.DropTable(
                 name: "Categorias");
 

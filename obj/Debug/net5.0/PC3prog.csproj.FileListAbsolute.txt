@@ -47,3 +47,5 @@ C:\Programacion1\PC3\PC3prog\obj\Debug\net5.0\PC3prog.dll
 C:\Programacion1\PC3\PC3prog\obj\Debug\net5.0\ref\PC3prog.dll
 C:\Programacion1\PC3\PC3prog\obj\Debug\net5.0\PC3prog.pdb
 C:\Programacion1\PC3\PC3prog\obj\Debug\net5.0\PC3prog.genruntimeconfig.cache
+C:\Programacion1\PC3\PC3prog\obj\Debug\net5.0\Razor\Views\Publicaciones\NuevaCategoria.cshtml.g.cs
+C:\Programacion1\PC3\PC3prog\obj\Debug\net5.0\Razor\Views\Publicaciones\NuevaCategoriaConfirmacion.cshtml.g.cs

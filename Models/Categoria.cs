@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace PC3prog.Models
 {
     public class Categoria
@@ -6,7 +8,8 @@ namespace PC3prog.Models
 
         public string Nombre {get;set;}
 
-        
+        public ICollection<Publicacion> Publicaciones {get;set;}
+
 
     }
 }
