@@ -14,7 +14,11 @@ namespace PC3prog.Models
 
         public string LugarCompra {get;set;}
 
-        public ICollection<Categoria> categorias {get;set;}
+        public string Precio {get;set;}
 
+        public Categoria Categoria {get;set;}
+
+        public int CategoriaId {get;set;}
+        
     }
 }

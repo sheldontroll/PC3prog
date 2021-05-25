@@ -15629,6 +15629,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Programacion1\\PC3\\PC3prog\\Views\\Publicaciones\\NuevaPublicacion.cshtml",
+      "TargetPath": "Views\\Publicaciones\\NuevaPublicacion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Programacion1\\PC3\\PC3prog\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"

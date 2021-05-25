@@ -9,7 +9,7 @@ using PC3prog.Models;
 namespace PC3prog.Migrations
 {
     [DbContext(typeof(PublicacionContext))]
-    [Migration("20210525225242_publicacion")]
+    [Migration("20210525233337_publicacion")]
     partial class publicacion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

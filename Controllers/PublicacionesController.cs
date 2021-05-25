@@ -16,7 +16,6 @@ namespace PC3prog.Controllers
         }
 
         public IActionResult NuevaCategoria(){
-            ViewBag.Categorias = _context.Categorias.ToList().Select(r => new SelectListItem(r.Nombre, r.Id.ToString()));
             return View();
         }
 
@@ -33,5 +32,26 @@ namespace PC3prog.Controllers
         public IActionResult NuevaCategoriaConfirmacion(){
             return View();
         }
+
+        public IActionResult NuevaPublicacion(){
+            ViewBag.Categorias = _context.Categorias.ToList().Select(r => new SelectListItem(r.Nombre, r.Id.ToString()));
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NuevaPublicacion(Publicacion r) {
+            if (ModelState.IsValid) {
+                _context.Add(r);
+                _context.SaveChanges();
+                return RedirectToAction("NuevaPublicacionConfirmacion");
+            }
+            return View(r);
+        }
+
+        public IActionResult NuevaPublicacionConfirmacion(){
+            return View();
+        }
+
+
     }
 }
