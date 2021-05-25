@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PC3prog.Models;
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+
 
 namespace PC3prog
 {
@@ -24,6 +28,9 @@ namespace PC3prog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<PublicacionContext>(options =>
+            options.UseNpgsql(
+            Configuration.GetConnectionString("PublicacionContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
